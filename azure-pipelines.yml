@@ -25,7 +25,11 @@ steps:
   inputs:
     filename: '$(Build.SourcesDirectory)\src\DevDeploy.bat'
 
-
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\Deploy'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Deploy'
 
 - task: VSBuild@1
   inputs:
