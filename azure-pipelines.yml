@@ -25,7 +25,17 @@ steps:
   inputs:
     filename: '$(Build.SourcesDirectory)\src\PokerLeagueManager.ui.web\BuildAngular.bat'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourceDirectory)'
+    Contents: '**\*.dacpac'
+    TargetFolder: '$(Build.ArtifactsStagingDirectory)'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourceDirectory)'
+    Contents: '**\*.zip'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\Deploy'
