@@ -12,6 +12,11 @@ pool:
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\Deploy'
+    Contents: '**.*'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Deploy'
   buildConfiguration: 'Release'
 
 steps:
